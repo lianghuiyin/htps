@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="AjaxFrame">
+</Property><Property Name="Solution File" Value="E:\SVN_GET\Project Code\AjaxFrame10\Code\ClientWeb\AjaxFrame.sln">
+</Property><Property Name="Date" Value="2012年8月5日">
+</Property><Property Name="Time" Value="15:19">
+</Property></Properties><Event ErrorLevel="0" Project="Utility" Source="Utility\Utility.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Utility" Source="Utility\Utility.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="BLL" Source="BLL\BLL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DAL" Source="DAL\DAL.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DAL" Source="DAL\DAL.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Model" Source="Model\Model.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Handler" Source="Handler\Handler.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Handler" Source="Handler\Handler.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="AjaxFrame.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="AjaxFrame.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Utility" Source="Utility\Utility.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="BLL" Source="BLL\BLL.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="DAL" Source="DAL\DAL.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Handler" Source="Handler\Handler.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
