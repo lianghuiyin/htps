@@ -3,7 +3,6 @@
 Code/ClientWeb/packages/*
 Code/ClientWeb/API/app/*
 
-*/Printer.csproj.FileListAbsolute.txt
 *.application
 *.exe
 *.suo
@@ -13,3 +12,10 @@ Code/ClientWeb/API/app/*
 *.dll
 *.pdb
 *.lib
+*.resources
+*.msi
+*.FileListAbsolute.txt
+*.exe.config
+*.DS_Store
+.DS_Store
+Code/ClientWeb/Setup/Setup.vdproj
