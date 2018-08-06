@@ -20,3 +20,4 @@ Code/ClientWeb/API/app/*
 .DS_Store
 Code/ClientWeb/Setup/Setup.vdproj
 Code/ClientWeb/API/bin/*
+Code/ClientWeb/Printer/bin/Debug/*.xml
