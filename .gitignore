@@ -19,3 +19,4 @@ Code/ClientWeb/API/app/*
 *.DS_Store
 .DS_Store
 Code/ClientWeb/Setup/Setup.vdproj
+Code/ClientWeb/API/bin/*
