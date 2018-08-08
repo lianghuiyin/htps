@@ -355,6 +355,7 @@ namespace DAL
                     }
                     piece.Place = (string)dr["Place"];
                     piece.IsEnable = (bool)dr["IsEnable"];
+                    piece.IsArchived = (bool)dr["IsArchived"];
                     piece.Description = (string)dr["Description"];
                     piece.Creater = (int)dr["Creater"];
                     piece.CreatedDate = (DateTime)dr["CreatedDate"];

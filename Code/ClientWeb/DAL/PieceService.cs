@@ -292,5 +292,91 @@ namespace DAL
                 return false;
             }
         }
+
+        /// <summary>
+        /// 获取已归档试件
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="count"></param>
+        /// <param name="lastId"></param>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
+        public static IList<Model.Piece> GetArchivedPieces(string key, int count, int lastId, out string errMsg)
+        {
+            errMsg = "";
+            try
+            {
+                if (key == null)
+                {
+                    key = "";
+                }
+                else
+                {
+                    key = string.Format("%{0}%", key);
+                }
+                SqlParameter[] para = new SqlParameter[]
+				{
+					new SqlParameter("@Key", (key == null ? "" : key)),
+					new SqlParameter("@Count", count),
+					new SqlParameter("@LastId", lastId)
+				};
+                string keyWhere = "";
+                if (key != null && key.Length > 0)
+                {
+                    keyWhere = " (Name like @Key or Number like @Key or AccessoryFactory like @Key or VehicleType like @Key or Place like @Key) and ";
+                }
+                string lastIdWhere = "";
+                if (lastId > 0)
+                {
+                    lastIdWhere = " and Id < @LastId ";
+                }
+                string sql = string.Format("select top (@Count) * from [Piece] where {0} IsArchived = 1 {1} order by Id desc", keyWhere, lastIdWhere);
+                DataTable dt = DBHelper.ExecuteGetDataTable(CommandType.Text, sql, para);
+
+                IList<Model.Piece> listPieces = new List<Model.Piece>();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Piece piece = new Piece();
+                    piece.Id = (int)dr["Id"];
+                    piece.Name = (string)dr["Name"];
+                    piece.Number = (string)dr["Number"];
+                    piece.Order = (string)dr["Order"];
+                    piece.Count = (int)dr["Count"];
+                    piece.PrintedCount = (int)dr["PrintedCount"];
+                    piece.IsPrinted = (bool)dr["IsPrinted"];
+                    piece.Ots = (string)dr["Ots"];
+                    piece.DelegateNumber = (string)dr["DelegateNumber"];
+                    piece.AccessoryFactory = (string)dr["AccessoryFactory"];
+                    piece.VehicleType = (string)dr["VehicleType"];
+                    piece.TestContent = (string)dr["TestContent"];
+                    piece.SendPerson = (string)dr["SendPerson"];
+                    piece.ChargePerson = (string)dr["ChargePerson"];
+                    if (DBNull.Value.Equals(dr["SendDate"]))
+                    {
+                        piece.SendDate = null;
+                    }
+                    else
+                    {
+                        piece.SendDate = (DateTime?)dr["SendDate"];
+                    }
+                    piece.Place = (string)dr["Place"];
+                    piece.IsEnable = (bool)dr["IsEnable"];
+                    piece.IsArchived = (bool)dr["IsArchived"];
+                    piece.Description = (string)dr["Description"];
+                    piece.Creater = (int)dr["Creater"];
+                    piece.CreatedDate = (DateTime)dr["CreatedDate"];
+                    piece.Modifier = (int)dr["Modifier"];
+                    piece.ModifiedDate = (DateTime)dr["ModifiedDate"];
+                    listPieces.Add(piece);
+                }
+
+                return listPieces;
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+                return null;
+            }
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace Model
         [DataMember]
         public bool IsEnable { get; set; }
         [DataMember]
+        public bool IsArchived { get; set; }
+        [DataMember]
         public string Description { get; set; }
         [DataMember]
         public int Creater { get; set; }

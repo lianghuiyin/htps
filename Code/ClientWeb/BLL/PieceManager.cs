@@ -10,12 +10,12 @@ using DAL;
 namespace BLL
 {
     /// <summary>
-    /// 项目逻辑类
+    /// 试件逻辑类
     /// </summary>
     public static class PieceManager
     {
         /// <summary>
-        /// 添加项目
+        /// 添加试件
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
@@ -25,7 +25,7 @@ namespace BLL
         }
 
         /// <summary>
-        /// 根据id修改项目
+        /// 根据id修改试件
         /// </summary>
         /// <param name="Model.Piece"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace BLL
         }
 
         /// <summary>
-        /// 删除项目
+        /// 删除试件
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
@@ -62,6 +62,19 @@ namespace BLL
         public static bool PrintPieceById(ref Model.PiecePrinter model, out string errMsg)
         {
             return PieceService.PrintPieceById(ref model, out errMsg);
+        }
+
+        /// <summary>
+        /// 获取已归档试件
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="count"></param>
+        /// <param name="lastId"></param>
+        /// <param name="errMsg"></param>
+        /// <returns></returns>
+        public static IList<Model.Piece> GetArchivedPieces(string key, int count, int lastId, out string errMsg)
+        {
+            return PieceService.GetArchivedPieces(key, count, lastId, out errMsg);
         }
     }
 }

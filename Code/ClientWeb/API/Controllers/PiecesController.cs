@@ -16,6 +16,40 @@ namespace API.Controllers
     {
         private Authorizer auth;
 
+        public HttpResponseMessage Get(string key, int count, int lastId)
+        {
+            string errMsg = "";
+            IList<Model.Piece> listPiece = BLL.PieceManager.GetArchivedPieces(key, count, lastId, out errMsg);
+            HttpStatusCode status;
+            string json;
+            //errMsg = "网络繁忙，请稍稍再度";
+            if (errMsg.Length > 0)
+            {
+                status = (HttpStatusCode)422;
+                var msg = new
+                {
+                    errors = new
+                    {
+                        ServerSideError = errMsg
+                    }
+                };
+                json = JsonConvert.SerializeObject(msg);
+            }
+            else
+            {
+                status = HttpStatusCode.OK;
+                var msg2 = new
+                {
+                    Pieces = listPiece
+                };
+                json = JsonConvert.SerializeObject(msg2);
+            }
+            return new HttpResponseMessage(status)
+            {
+                Content = new StringContent(json, System.Text.Encoding.GetEncoding("UTF-8"), "application/json")
+            };
+        }
+
         public HttpResponseMessage Post(PieceWrap pieceWrap)
         {
             string errMsg = "";
