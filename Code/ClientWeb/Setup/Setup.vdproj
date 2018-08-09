@@ -665,7 +665,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:M&T HORIZON Printer"
         "ProductCode" = "8:{05983F74-F4F3-4B45-80A3-A32C9094854B}"
-        "PackageCode" = "8:{6E04FBEC-8DF3-46E1-92CA-B310A8BE8524}"
+        "PackageCode" = "8:{78DBE468-D283-4C78-984A-EA2158323141}"
         "UpgradeCode" = "8:{C21A148E-B4ED-4A68-8DFA-DF6956433F65}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

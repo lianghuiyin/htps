@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
   <publishProfile publishUrl="E:\IISROOT\HTPS\Server" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/Utility.dll" publishTime="08/08/2018 21:48:59" />
+    <file relUrl="bin/Utility.dll" publishTime="08/09/2018 22:05:20" />
     <file relUrl="bin/System.Web.Helpers.dll" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/System.Web.Http.WebHost.dll" publishTime="08/06/2018 22:05:10" />
     <file relUrl="Global.asax" publishTime="08/05/2018 13:21:39" />
@@ -9,17 +9,17 @@
     <file relUrl="Views/_ViewStart.cshtml" publishTime="08/05/2018 13:21:39" />
     <file relUrl="bin/System.Net.Http.WebRequest.xml" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/System.Web.Providers.dll" publishTime="08/06/2018 22:05:09" />
-    <file relUrl="bin/JWT.pdb" publishTime="08/08/2018 21:48:59" />
-    <file relUrl="Web.config" publishTime="08/08/2018 21:49:30" />
+    <file relUrl="bin/JWT.pdb" publishTime="08/09/2018 22:05:20" />
+    <file relUrl="Web.config" publishTime="08/09/2018 22:05:58" />
     <file relUrl="bin/System.Web.Http.WebHost.xml" publishTime="08/06/2018 22:05:10" />
-    <file relUrl="bin/Model.dll" publishTime="08/08/2018 21:48:58" />
+    <file relUrl="bin/Model.dll" publishTime="08/09/2018 22:05:20" />
     <file relUrl="bin/System.Web.Mvc.xml" publishTime="08/06/2018 22:05:08" />
-    <file relUrl="bin/DAL.dll" publishTime="08/08/2018 21:48:59" />
+    <file relUrl="bin/DAL.dll" publishTime="08/09/2018 22:05:21" />
     <file relUrl="bin/System.Net.Http.Formatting.dll" publishTime="08/06/2018 22:05:10" />
     <file relUrl="Views/Shared/Error.cshtml" publishTime="08/05/2018 13:21:39" />
     <file relUrl="bin/System.Web.WebPages.Razor.dll" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/Newtonsoft.Json.xml" publishTime="08/06/2018 22:05:12" />
-    <file relUrl="bin/Model.pdb" publishTime="08/08/2018 21:48:58" />
+    <file relUrl="bin/Model.pdb" publishTime="08/09/2018 22:05:20" />
     <file relUrl="bin/WebGrease.dll" publishTime="08/06/2018 22:05:13" />
     <file relUrl="bin/System.Web.WebPages.Deployment.xml" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/System.Web.WebPages.Razor.xml" publishTime="08/06/2018 22:05:11" />
@@ -29,23 +29,23 @@
     <file relUrl="Views/Home/Index.cshtml" publishTime="08/05/2018 13:21:39" />
     <file relUrl="bin/System.Web.Razor.xml" publishTime="08/06/2018 22:05:09" />
     <file relUrl="bin/System.Web.WebPages.xml" publishTime="08/06/2018 22:05:11" />
-    <file relUrl="bin/API.pdb" publishTime="08/08/2018 21:49:03" />
+    <file relUrl="bin/API.pdb" publishTime="08/09/2018 22:05:24" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/06/2018 22:05:12" />
-    <file relUrl="bin/Utility.pdb" publishTime="08/08/2018 21:48:59" />
+    <file relUrl="bin/Utility.pdb" publishTime="08/09/2018 22:05:20" />
     <file relUrl="bin/System.Net.Http.dll" publishTime="08/06/2018 22:05:11" />
-    <file relUrl="bin/DAL.pdb" publishTime="08/08/2018 21:48:59" />
-    <file relUrl="bin/BLL.dll" publishTime="08/08/2018 21:49:00" />
+    <file relUrl="bin/DAL.pdb" publishTime="08/09/2018 22:05:21" />
+    <file relUrl="bin/BLL.dll" publishTime="08/09/2018 22:05:21" />
     <file relUrl="bin/System.Web.Mvc.dll" publishTime="08/06/2018 22:05:08" />
     <file relUrl="bin/System.Net.Http.WebRequest.dll" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/System.Web.WebPages.dll" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/System.Net.Http.Formatting.xml" publishTime="08/06/2018 22:05:10" />
     <file relUrl="bin/System.Web.Razor.dll" publishTime="08/06/2018 22:05:09" />
     <file relUrl="bin/System.Web.WebPages.Deployment.dll" publishTime="08/06/2018 22:05:11" />
-    <file relUrl="bin/BLL.pdb" publishTime="08/08/2018 21:49:00" />
+    <file relUrl="bin/BLL.pdb" publishTime="08/09/2018 22:05:21" />
     <file relUrl="bin/System.Net.Http.xml" publishTime="08/06/2018 22:05:11" />
     <file relUrl="bin/Microsoft.Web.Infrastructure.dll" publishTime="08/06/2018 22:05:11" />
-    <file relUrl="bin/API.dll" publishTime="08/08/2018 21:49:03" />
-    <file relUrl="bin/JWT.dll" publishTime="08/08/2018 21:48:59" />
+    <file relUrl="bin/API.dll" publishTime="08/09/2018 22:05:24" />
+    <file relUrl="bin/JWT.dll" publishTime="08/09/2018 22:05:20" />
     <file relUrl="bin/EntityFramework.dll" publishTime="08/06/2018 22:05:08" />
     <file relUrl="favicon.ico" publishTime="08/05/2018 13:21:39" />
     <file relUrl="bin/System.Web.Optimization.dll" publishTime="08/06/2018 22:05:09" />

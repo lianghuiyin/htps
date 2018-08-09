@@ -128,6 +128,8 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CararchivesController.cs" />
     <Compile Include="Controllers\CarrestoresController.cs" />
+    <Compile Include="Controllers\PiecerestoresController.cs" />
+    <Compile Include="Controllers\PiecearchivesController.cs" />
     <Compile Include="Controllers\PiecesController.cs" />
     <Compile Include="Controllers\OptimizersController.cs" />
     <Compile Include="Controllers\DownloadsController.cs" />

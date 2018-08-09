@@ -65,6 +65,26 @@ namespace BLL
         }
 
         /// <summary>
+        /// 试件归档
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool ArchivePiece(ref Model.Piecearchive model, out string errMsg)
+        {
+            return PieceService.ArchivePiece(ref model, out errMsg);
+        }
+
+        /// <summary>
+        /// 试件还原
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool RestorePiece(ref Model.Piecerestore model, out string errMsg)
+        {
+            return PieceService.RestorePiece(ref model, out errMsg);
+        }
+
+        /// <summary>
         /// 获取已归档试件
         /// </summary>
         /// <param name="key"></param>

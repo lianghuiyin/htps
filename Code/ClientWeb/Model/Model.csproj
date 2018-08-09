@@ -77,6 +77,8 @@
     <Compile Include="Carrestore.cs" />
     <Compile Include="BillsFilter.cs" />
     <Compile Include="BillPrinter.cs" />
+    <Compile Include="Piecerestore.cs" />
+    <Compile Include="Piecearchive.cs" />
     <Compile Include="PiecePrinter.cs" />
     <Compile Include="Pieces.cs" />
     <Compile Include="Optimizer.cs" />

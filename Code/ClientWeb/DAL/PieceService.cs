@@ -293,6 +293,143 @@ namespace DAL
             }
         }
 
+
+        /// <summary>
+        /// 试件归档
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool ArchivePiece(ref Model.Piecearchive model, out string errMsg)
+        {
+            errMsg = "";
+            try
+            {
+                SqlParameter[] para = new SqlParameter[] 
+                {
+                    new SqlParameter("@Piece", model.Piece),
+                    new SqlParameter("@Creater", model.Creater),
+                    new SqlParameter("@CreatedDate", model.CreatedDate),
+                    new SqlParameter("@OutState",SqlDbType.Int),
+                    new SqlParameter("@return",SqlDbType.Int)
+                };
+                para[3].Direction = ParameterDirection.Output;
+                para[4].Direction = ParameterDirection.ReturnValue;
+                DBHelper.ExecuteNonQuery(CommandType.StoredProcedure, "proc_PieceArchive", para);
+                int outState = int.Parse(para[3].Value.ToString());
+                int returnValue = int.Parse(para[4].Value.ToString());
+                if (returnValue > 0)
+                {
+                    EventLog e = new EventLog();
+                    e.TargetIds = returnValue.ToString();
+                    e.CodeTag = "ArchivePiece";
+                    e.LogName = "试件归档";
+                    EventLogService.AddEventLog<Model.Piecearchive>(e, model);
+                    return true;
+                }
+                else
+                {
+                    switch (outState)
+                    {
+                        case -100:
+                            errMsg = "该试件下有申请单没有归档，不能归档该试件";
+                            break;
+                        case -1:
+                            errMsg = "归档试件失败";
+                            break;
+                        default:
+                            errMsg = "异常错误";
+                            break;
+                    }
+                    ErrorLog e = new ErrorLog();
+                    e.TargetIds = model.Piece.ToString();
+                    e.CodeTag = "ArchivePiece";
+                    e.LogName = "试件归档";
+                    e.ErrorMsg = errMsg;
+                    ErrorLogService.AddErrorLog<Model.Piecearchive>(e, model);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+                ErrorLog e = new ErrorLog();
+                e.TargetIds = "0";
+                e.CodeTag = "ArchivePiece";
+                e.LogName = "试件归档";
+                e.ErrorMsg = ex.Message.ToString();
+                ErrorLogService.AddErrorLog<Model.Piecearchive>(e, model);
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 试件还原
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool RestorePiece(ref Model.Piecerestore model, out string errMsg)
+        {
+            errMsg = "";
+            try
+            {
+                SqlParameter[] para = new SqlParameter[] 
+                {
+                    new SqlParameter("@Piece", model.Piece),
+                    new SqlParameter("@Creater", model.Creater),
+                    new SqlParameter("@CreatedDate", model.CreatedDate),
+                    new SqlParameter("@OutState",SqlDbType.Int),
+                    new SqlParameter("@return",SqlDbType.Int)
+                };
+                para[3].Direction = ParameterDirection.Output;
+                para[4].Direction = ParameterDirection.ReturnValue;
+                DBHelper.ExecuteNonQuery(CommandType.StoredProcedure, "proc_PieceRestore", para);
+                int outState = int.Parse(para[3].Value.ToString());
+                int returnValue = int.Parse(para[4].Value.ToString());
+                if (returnValue > 0)
+                {
+                    EventLog e = new EventLog();
+                    e.TargetIds = returnValue.ToString();
+                    e.CodeTag = "RestorePiece";
+                    e.LogName = "试件还原";
+                    EventLogService.AddEventLog<Model.Piecerestore>(e, model);
+                    return true;
+                }
+                else
+                {
+                    switch (outState)
+                    {
+                        case -100:
+                            errMsg = "该试件下有申请单没有归档，不能归档该试件";
+                            break;
+                        case -1:
+                            errMsg = "归档试件失败";
+                            break;
+                        default:
+                            errMsg = "异常错误";
+                            break;
+                    }
+                    ErrorLog e = new ErrorLog();
+                    e.TargetIds = model.Piece.ToString();
+                    e.CodeTag = "RestorePiece";
+                    e.LogName = "试件还原";
+                    e.ErrorMsg = errMsg;
+                    ErrorLogService.AddErrorLog<Model.Piecerestore>(e, model);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                errMsg = ex.Message;
+                ErrorLog e = new ErrorLog();
+                e.TargetIds = "0";
+                e.CodeTag = "RestorePiece";
+                e.LogName = "试件还原";
+                e.ErrorMsg = ex.Message.ToString();
+                ErrorLogService.AddErrorLog<Model.Piecerestore>(e, model);
+                return false;
+            }
+        }
+
         /// <summary>
         /// 获取已归档试件
         /// </summary>
