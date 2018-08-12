@@ -98,6 +98,7 @@ create table [dbo].[Piece] (
    [SendDate]           datetime             null,
    [Place]              nvarchar(20)         not null default(''),
    [IsEnable]           bit                  not null default(1),
+   [IsArchived]         bit                  not null default(0),
    [Description]        nvarchar(200)        not null default(''),
    [Creater]            int                  not null,
    [CreatedDate]        datetime             not null constraint DF_Piece_CreatedDate default getdate(),
@@ -751,8 +752,6 @@ EXEC dbo.sp_executesql @statement = N'
 
 
 
-
-
 CREATE PROCEDURE [dbo].[proc_StartupSelect] 
 AS
 begin
@@ -767,7 +766,7 @@ begin
   select * from [Instance] where IsArchived = 0
   select * from [Trace] where IsArchived = 0
   select top 20 * from [Bill] order by Id desc
-  select * from [Piece] where IsPrinted = 0
+  select * from [Piece] where IsArchived = 0
   --select top 5 * from [Signature] order by Id desc
 end
 
@@ -1019,6 +1018,120 @@ end
 
 
 
+
+
+
+
+
+
+
+' 
+END
+GO
+/****** 对象:  StoredProcedure [dbo].[proc_PieceArchive]    脚本日期: 08/24/2017 08:33:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[proc_PieceArchive]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+
+
+
+
+
+
+create PROCEDURE [dbo].[proc_PieceArchive] 
+  @Piece int,
+  @Creater int,
+  @CreatedDate datetime,
+  @OutState int output
+AS
+SET NOCOUNT ON
+begin tran
+  set @OutState = 0
+  update [Piece] set IsArchived = 1,
+    Modifier=@Creater,
+    ModifiedDate=@CreatedDate
+  where Id = @Piece
+  if @@error<>0 
+  begin
+    set @OutState = -1--归档试件失败
+    goto err
+  end
+
+
+  goto succ
+
+
+
+err:
+  rollback tran;
+  return 0
+succ:
+  commit tran
+  set @OutState = 1
+  return @Piece
+
+
+
+
+
+
+
+
+
+
+
+
+' 
+END
+GO
+/****** 对象:  StoredProcedure [dbo].[proc_PieceRestore]    脚本日期: 08/24/2017 08:33:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[proc_PieceRestore]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+
+
+
+
+create PROCEDURE [dbo].[proc_PieceRestore] 
+  @Piece int,
+  @Creater int,
+  @CreatedDate datetime,
+  @OutState int output
+AS
+SET NOCOUNT ON
+begin tran
+  set @OutState = 0
+  update [Piece] set IsArchived = 0,
+    Modifier=@Creater,
+    ModifiedDate=@CreatedDate
+  where Id = @Piece
+  if @@error<>0 
+  begin
+    set @OutState = -1--还原试件失败
+    goto err
+  end
+
+
+  goto succ
+
+
+
+err:
+  rollback tran;
+  return 0
+succ:
+  commit tran
+  set @OutState = 1
+  return @Piece
 
 
 
